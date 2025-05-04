@@ -1,19 +1,19 @@
-import { Link , useRouter } from 'expo-router';
-import { View, Button, StyleSheet } from 'react-native';
-import Page1 from './page1';
-import Page2 from './page2';
+import { useRouter } from "expo-router";
+import { View, Text, StyleSheet } from "react-native";
+import { Button } from "@/src/BasicComponents/Button/button";
 
 export default function Home() {
-    const router = useRouter();
+  const router = useRouter();
   return (
     <View style={styles.container}>
+      <View>
+        <Text style={styles.header}>Home</Text>
+      </View>
       <Button
-        title="跳转页面 1"
-        onPress={() => router.push('/page1')}
-      />
-      <Button
-        title="跳转页面 2"
-        onPress={() => router.push('/page2')}
+        title="按钮 Button"
+        size="sm"
+        onPress={() => router.push("/example/Button/ButtonEx")}
+        containerStyle={{ width: "80%" }}
       />
     </View>
   );
@@ -22,7 +22,12 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: "center",
+  },
+  header: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 5,
+    padding: 10,
   },
 });
